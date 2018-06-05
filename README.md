@@ -1,5 +1,11 @@
 # markdown-it-blockdiag
 
+## Install
+
+```
+npm install --save markdown-it-blockdiag
+```
+
 ## Usage
 
 ```js
