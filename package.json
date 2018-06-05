@@ -1,18 +1,30 @@
 {
   "name": "markdown-it-blockdiag",
   "version": "0.1.0",
+  "homepage": "https://github.com/kaishuu0123/markdown-it-blockdiag.git",
   "description": "blockdiag plugin for markdown-it.",
+  "license": "MIT",
+  "author": {
+    "name": "Koki Oyatsu",
+    "url": "https://saino.me/"
+  },
   "keywords": [
     "markdown-it",
     "markdown-it-plugin"
   ],
+  "files": [
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaishuu0123/markdown-it-blockdiag.git"
+  },
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.babel.js --progress --color",
     "test": "mocha --require intelli-espower-loader --require babel-register --recursive test"
   },
-  "author": "Koki Oyatsu <kaishuu0123@gmail.com>",
-  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
