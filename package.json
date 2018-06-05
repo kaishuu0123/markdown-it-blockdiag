@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-blockdiag",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/kaishuu0123/markdown-it-blockdiag.git",
   "description": "blockdiag plugin for markdown-it.",
   "license": "MIT",
