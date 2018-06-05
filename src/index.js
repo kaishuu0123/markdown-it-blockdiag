@@ -23,7 +23,7 @@ const blockdiagRender = (image_url) => {
   return `<a href="${image_url}" target="_blank"><img src="${image_url}" alt="${image_url}" /></a>`
 }
 
-export default (md, options) => {
+const BlockdiagPlugin = (md, options) => {
   options = options || {};
 
   const diag_types = [
@@ -50,3 +50,5 @@ export default (md, options) => {
 
   md.renderer.rules.blockdiag = render;
 }
+
+module.exports = BlockdiagPlugin;
