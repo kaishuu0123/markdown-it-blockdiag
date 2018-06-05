@@ -1,0 +1,35 @@
+{
+  "name": "markdown-it-blockdiag",
+  "version": "0.1.0",
+  "description": "blockdiag plugin for markdown-it.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.babel.js --progress --color",
+    "test": "mocha --require intelli-espower-loader --require babel-register --recursive test"
+  },
+  "author": "Koki Oyatsu <kaishuu0123@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "espower-loader": "^1.2.2",
+    "intelli-espower-loader": "^1.0.1",
+    "markdown-it": "^8.4.1",
+    "mocha": "^5.2.0",
+    "power-assert": "^1.5.0",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^3.0.1"
+  },
+  "dependencies": {
+    "es6-promise": "^4.2.4",
+    "pako": "^1.0.6",
+    "paths": "^0.1.1",
+    "url-join": "^4.0.0",
+    "utf8-bytes": "0.0.1"
+  }
+}
