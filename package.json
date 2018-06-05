@@ -2,6 +2,10 @@
   "name": "markdown-it-blockdiag",
   "version": "0.1.0",
   "description": "blockdiag plugin for markdown-it.",
+  "keywords": [
+    "markdown-it",
+    "markdown-it-plugin"
+  ],
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.babel.js --progress --color",
