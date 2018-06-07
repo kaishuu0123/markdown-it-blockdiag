@@ -20,4 +20,4 @@ Name              | Description                                                 
 `generateSourceUrl` | blockdiag API Server URL | https://blockdiag-api.com/
 
 ## Runkit Example
-* https://runkit.com/embed/mfjgzlkvvbtq
+* https://runkit.com/embed/t9u6x9i24lr8
