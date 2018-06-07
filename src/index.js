@@ -6,7 +6,7 @@ import utf8bytes from 'utf8-bytes'
 import pako from 'pako'
 
 const generateSourceDefaultUrl = () => {
-  return 'https://blockdiag-api.saino.me/';
+  return 'https://blockdiag-api.com/';
 }
 
 const getImageURL = (diagType, code, generateSourceUrl) => {
