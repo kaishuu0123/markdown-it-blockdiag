@@ -18,3 +18,6 @@ The `opts` object can contain:
 Name              | Description                                                    | Default
 ------------------|----------------------------------------------------------------|-----------------------------------
 `generateSourceUrl` | blockdiag API Server URL | https://blockdiag-api.com/
+
+## Runkit Example
+* https://runkit.com/embed/mfjgzlkvvbtq
