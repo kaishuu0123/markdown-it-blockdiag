@@ -18,7 +18,7 @@ it('blockdiag', () => {
     A -> B;
   }
   \`\`\``);
-  assert(render_text === expectTemplate('https://blockdiag-api.saino.me', 'blockdiag', 'q-ZSAAJHBV07BSdrILsWAA=='))
+  assert(render_text === expectTemplate('https://blockdiag-api.com', 'blockdiag', 'q-ZSAAJHBV07BSdrILsWAA=='))
 });
 
 it('seqdiag', () => {
@@ -28,7 +28,7 @@ it('seqdiag', () => {
     A <-- B;
   }
   \`\`\``);
-  var expect = expectTemplate('https://blockdiag-api.saino.me', 'seqdiag', 'q-ZSAAJHBV07BSdrKNtGVxfCqQUA')
+  var expect = expectTemplate('https://blockdiag-api.com', 'seqdiag', 'q-ZSAAJHBV07BSdrKNtGVxfCqQUA')
   assert(render_text === expect)
 });
 

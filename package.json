@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-blockdiag",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "homepage": "https://github.com/kaishuu0123/markdown-it-blockdiag.git",
   "description": "blockdiag plugin for markdown-it.",
   "license": "MIT",
@@ -42,7 +42,6 @@
     "webpack-cli": "^3.0.1"
   },
   "dependencies": {
-    "es6-promise": "^4.2.4",
     "pako": "^1.0.6",
     "paths": "^0.1.1",
     "url-join": "^4.0.0",
