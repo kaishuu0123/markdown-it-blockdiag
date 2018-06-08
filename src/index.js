@@ -1,12 +1,13 @@
-'use strict';
+'use strict'
 
 import urljoin from 'url-join'
 import base64 from './lib/base64'
 import utf8bytes from 'utf8-bytes'
 import pako from 'pako'
+import markdownitfence from 'markdown-it-fence'
 
 const generateSourceDefaultUrl = () => {
-  return 'https://blockdiag-api.com/';
+  return 'https://blockdiag-api.com/'
 }
 
 const getImageURL = (diagType, code, generateSourceUrl) => {
@@ -15,17 +16,25 @@ const getImageURL = (diagType, code, generateSourceUrl) => {
   var deflated_code = base64.toBase64(binaryString)
     .replace(/\+/g, '-') // Convert '+' to '-'
     .replace(/\//g, '_') // Convert '/' to '_'
-  const image_url = urljoin(generateSourceUrl, 'api', 'v1', diagType, 'inflate', deflated_code);
+  const image_url = urljoin(generateSourceUrl, 'api', 'v1', diagType, 'inflate', deflated_code)
   return image_url
 }
 
-const blockdiagRender = (image_url) => {
+const render = (image_url) => {
   return `<a href="${image_url}" target="_blank"><img src="${image_url}" alt="${image_url}" /></a>`
 }
 
-const BlockdiagPlugin = (md, options) => {
-  options = options || {};
+const BlockdiagRender = (generateSourceUrl) => {
+  return (tokens, idx, options, env) => {
+    const token = tokens[idx]
+    const diag_type = token.info.trim()
+    const code = token.content.trim()
+    const image_url = getImageURL(diag_type, code, generateSourceUrl)
+    return render(image_url)
+  }
+}
 
+const BlockdiagValidate = (params) => {
   const diag_types = [
     "actdiag",
     "blockdiag",
@@ -33,22 +42,24 @@ const BlockdiagPlugin = (md, options) => {
     "packetdiag",
     "rackdiag",
     "seqdiag"
-  ];
-  var generateSourceUrl = options.generateSourceUrl || generateSourceDefaultUrl();
-  var render = options.render || md.renderer.rules.image;
+  ]
 
-  const temp = md.renderer.rules.fence.bind(md.renderer.rules)
-  md.renderer.rules.fence = (tokens, idx, options, env, slf) => {
-    const token = tokens[idx]
-    const code = token.content.trim()
-    if (diag_types.includes(token.info)) {
-      var image_url = getImageURL(token.info, code, generateSourceUrl);
-      return blockdiagRender(image_url);
-    }
-    return temp(tokens, idx, options, env, slf);
-  };
-
-  md.renderer.rules.blockdiag = render;
+  var type = params.trim().split(' ', 2)[0]
+  return diag_types.includes(type)
 }
 
-module.exports = BlockdiagPlugin;
+const BlockdiagPlugin = (md, options) => {
+  options = options || {}
+
+  var generateSourceUrl = options.generateSourceUrl || generateSourceDefaultUrl()
+  var render = options.render || md.renderer.rules.image
+  var marker = options.marker || '```'
+
+  return markdownitfence(md, 'blockdiag', {
+    marker: marker,
+    render: BlockdiagRender(generateSourceUrl),
+    validate: BlockdiagValidate,
+  })
+}
+
+module.exports = BlockdiagPlugin

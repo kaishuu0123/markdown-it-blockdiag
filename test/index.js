@@ -18,7 +18,18 @@ it('blockdiag', () => {
     A -> B;
   }
   \`\`\``);
-  assert(render_text === expectTemplate('https://blockdiag-api.com', 'blockdiag', 'q-ZSAAJHBV07BSdrILsWAA=='))
+  const expect = expectTemplate('https://blockdiag-api.com', 'blockdiag', 'q-ZSAAJHBV07BSdrILsWAA==')
+  assert(render_text === expect)
+});
+
+it('blockdiag whitespace parse', () => {
+  var render_text = mdi.render(`\`\`\` blockdiag
+  {
+    A -> B;
+  }
+  \`\`\``);
+  const expect = expectTemplate('https://blockdiag-api.com', 'blockdiag', 'q-ZSAAJHBV07BSdrILsWAA==')
+  assert(render_text === expect)
 });
 
 it('seqdiag', () => {
@@ -28,7 +39,7 @@ it('seqdiag', () => {
     A <-- B;
   }
   \`\`\``);
-  var expect = expectTemplate('https://blockdiag-api.com', 'seqdiag', 'q-ZSAAJHBV07BSdrKNtGVxfCqQUA')
+  const expect = expectTemplate('https://blockdiag-api.com', 'seqdiag', 'q-ZSAAJHBV07BSdrKNtGVxfCqQUA')
   assert(render_text === expect)
 });
 
@@ -38,7 +49,7 @@ it('pre block', () => {
   testString
 }
 \`\`\``);
-  var expect = `<pre><code class="language-shell">{
+  const expect = `<pre><code class="language-shell">{
   testString
 }
 </code></pre>
@@ -54,5 +65,17 @@ it('change url', () => {
     A -> B;
   }
   \`\`\``);
-  assert(render_text === expectTemplate('http://localhost:8000', 'blockdiag', 'q-ZSAAJHBV07BSdrILsWAA=='))
+  const expect = expectTemplate('http://localhost:8000', 'blockdiag', 'q-ZSAAJHBV07BSdrILsWAA==')
+  assert(render_text === expect)
+});
+
+it('change Marker', () => {
+  mdi.use(markdownItBlockdiag, { marker: ':::'});
+  var render_text = mdi.render(`:::blockdiag
+  {
+    A -> B;
+  }
+  :::`);
+  const expect = expectTemplate('https://blockdiag-api.com', 'blockdiag', 'q-ZSAAJHBV07BSdrILsWAA==')
+  assert(render_text === expect)
 });
