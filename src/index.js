@@ -4,7 +4,7 @@ import urljoin from 'url-join'
 import base64 from './lib/base64'
 import utf8bytes from 'utf8-bytes'
 import pako from 'pako'
-import markdownitfence from 'markdown-it-fence'
+import markdownitfence from '@kaishuu0123/markdown-it-fence'
 
 const generateSourceDefaultUrl = () => {
   return 'https://blockdiag-api.com/'
