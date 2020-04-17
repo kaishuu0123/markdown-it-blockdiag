@@ -42,7 +42,7 @@
     "webpack-cli": "^3.0.1"
   },
   "dependencies": {
-    "@kaishuu0123/markdown-it-fence": "0.1.4",
+    "@kaishuu0123/markdown-it-fence": "^0.2.0",
     "pako": "^1.0.6",
     "paths": "^0.1.1",
     "url-join": "^4.0.0",
